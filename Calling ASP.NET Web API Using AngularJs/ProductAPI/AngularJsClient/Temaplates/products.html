@@ -1,0 +1,30 @@
+﻿<div class="text-center">
+    <h1>{{message}}</h1>
+
+    <a href="products/create" class="btn btn-default">Create Product</a>
+
+    <br />
+    <br />
+
+    <table class="productTable">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Price</th>
+                <th colspan="3">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="product in products">
+                <td>{{product.Name}}</td>
+                <td>{{product.Price}}</td>
+                <td><a href="products/details/{{product.Id}}">Details</a></td>
+                <td><a href="products/edit/{{product.Id}}">Edit</a></td>
+                <td><a href="products/delete/{{product.Id}}">Delete</a></td>
+            </tr>
+
+        </tbody>
+    </table>
+</div>
+
+<a href="/" class="btn btn-primary">Go to Home Page</a>
