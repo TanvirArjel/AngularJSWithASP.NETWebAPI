@@ -13,6 +13,7 @@ using ProductAPI.Repository;
 
 namespace ProductAPI.Controllers
 {
+    [Authorize]
     public class ProductsController : ApiController
     {
         private IProductRepository _productRepository;
@@ -22,6 +23,7 @@ namespace ProductAPI.Controllers
             _productRepository = productRepository;
         }
         // GET: api/Products
+        [HttpGet]
         public IQueryable<Product> GetProducts()
         {
             return _productRepository.GetAll();
@@ -29,6 +31,7 @@ namespace ProductAPI.Controllers
 
         // GET: api/Products/5
         [ResponseType(typeof(Product))]
+     
         public IHttpActionResult GetProduct(int id)
         {
             Product product = _productRepository.GetById(id);

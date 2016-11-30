@@ -1,28 +1,72 @@
 ﻿<!DOCTYPE html>
 <html ng-app="Demo">
-<head>
-    <title></title>
-    <base href="/" />
-    <meta charset="utf-8" />
-    <link href="Content/bootstrap.min.css" rel="stylesheet" />
-    <link href="Content/Styles.css" rel="stylesheet" />
-    <script src="Scripts/angular.js"></script>
-    <script src="Scripts/angular-route.min.js"></script>
-    <script src="Scripts/module.js"></script>
-    <script src="Scripts/routeConfig.js"></script>
-    <script src="Scripts/Controller.js"></script>
-    <script src="Scripts/factory.js"></script>
+    <head>
+        <title></title>
+        <base href="/" />
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width"/>
+        <meta charset="utf-8"/>
+       
+        <link href="Content/bootstrap.min.css" rel="stylesheet"/>
+        <link href="Content/Styles.css" rel="stylesheet"/>
+        <script src="/Scripts/jquery-3.1.1.min.js"></script>
+        <script src="Scripts/angular.js"></script>
+        
+        <script src="Scripts/angular-route.min.js"></script>
+        <script src="Scripts/module.js"></script>
+        <script src="Scripts/routeConfig.js"></script>
+        <script src="Scripts/Controller.js"></script>
+        <script src="Scripts/accountController.js"></script>
+        <script src="Scripts/factory.js"></script>
+        <script src="Scripts/indexController.js"></script>
+        
+        
+       
+    </head>
+<body class="container">
+    <div class="navbar navbar-inverse navbar-fixed-top" data-ng-controller="indexController">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="/">AngularJS with ASP.NET Web API </a>
+                </div>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="/">Home</a></li>
+                    <li><a href="products">Products</a></li>
+                    
+                </ul>
+                
+                <ul class="nav navbar-nav navbar-right">
+                    <li ng-show="authentication" class="hideit"><a href="#">Welcome, {{userName}}</a></li>
+                    <li><a href="login" ng-hide="authentication">Login</a></li>
+                    <li><a href="" data-ng-click="logout()" ng-hide="!authentication">LogOut</a></li>
+                    <li><!--<a href="register" ng-hide="authentication">Register</a>--></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        <ng-view>
+
+        </ng-view>
+        <hr/>
+    </div>
+    <!--<footer>
+        <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+    </footer>-->
     
-</head>
-    <body class="container">
-        <div>
-            <h1 class="text-center">AngularJS With Web API</h1>
-            <a href="products" class="btn btn-default">Product</a>
-        </div>
-        <div>
-            <ng-view>
-               
-            </ng-view>
-        </div>
-    </body>
+    
+    <!--<script>
+        $(document).ready(function(){
+            alert("I am Jquery");
+        });
+    </script>-->
+</body>
 </html>

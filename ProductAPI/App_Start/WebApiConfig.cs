@@ -38,8 +38,8 @@ namespace ProductAPI
             container.RegisterType<IProductRepository, ProductRepository>(new HierarchicalLifetimeManager());
             config.DependencyResolver = new UnityResolver(container);
 
-            EnableCorsAttribute corsAttribute = new EnableCorsAttribute("*", "*", "*");
-            config.EnableCors(corsAttribute);
+            //EnableCorsAttribute corsAttribute = new EnableCorsAttribute("*", "*", "*");
+            //config.EnableCors(corsAttribute);
         }
     }
 }

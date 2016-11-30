@@ -1,11 +1,9 @@
-﻿app.controller("productsController", function ($scope, $http) {
+﻿app.controller("productsController", function ($scope, $http, productList) {
     $scope.message = "Product Page";
-    $http.get("http://localhost:43618/api/Products")
-         .then(function (response) {
-             $scope.products = response.data;
-         })
+    $scope.products = productList;
 
-})
+
+    })
    .controller("productCreateController", function ($scope, $http, $location) {
        $scope.message = "Create Page";
        $scope.product = {};
