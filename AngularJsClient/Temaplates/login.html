@@ -1,18 +1,27 @@
-﻿<h1>{{loginPageHeader}}</h1>
+﻿<!--<h1>{{loginPageHeader}}</h1>-->
 <div class="login-page">
     <div class="form">
-        <form class="register-form">
-            <input type="text" placeholder="Email" ng-model="user.Email"/>
-            <input type="password" placeholder="Password" ng-model="user.Password"/>
-            <input type="password" placeholder="Confirm password" ng-model="user.ConfirmPassword"/>
-            <button ng-click="registerUser(user)">create</button>
+        <form class="register-form" ng-submit="registerUser(user)">
+            <div style="color:red">
+                {{Message}}
+            </div>
+            <input type="text" placeholder="Email" ng-model="user.Email" required/>
+            <input type="password" placeholder="Password" ng-model="user.Password" required/>
+            <input type="password" placeholder="Confirm password" ng-model="user.ConfirmPassword" required/>
+            <button type="submit">create</button>
+            
             <p class="message">Already registered? <a href="#">Sign In</a></p>
         </form>
-        <form class="login-form">
-            <input type="text" placeholder="Email" ng-model="account.username"/>
-            <input type="password" placeholder="Password" ng-model="account.password" />
-            <button type="submit" ng-click="login()">login</button>
-            <p class="message">Not registered? <a href="#">Create an account</a></p>
+        <form class="login-form" ng-submit="login()">
+            <div style="color:red" id="errorMessage">
+                {{ErrorMessage}}
+            </div>
+            <input type="text" placeholder="Email" ng-model="account.username" required/>
+            <input type="password" placeholder="Password" ng-model="account.password" required/>
+            <button id="button" type="submit">login</button>
+
+            <p class="message">Not registered? <a href="#">Create an account</a>
+            </p>
         </form>
     </div>
 </div>
@@ -22,5 +31,11 @@
     jQuery('.message a').click(function () {
         jQuery('form').animate({ height: "toggle", opacity: "toggle" }, "slow");
     });
+
+    jQuery("#button").click(function () {
+        
+        jQuery("#errorMessage").addClass("errorMessage");
+    });
+
 </script>
 

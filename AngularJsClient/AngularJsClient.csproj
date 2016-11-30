@@ -95,7 +95,6 @@
     <Content Include="Temaplates\edit.html" />
     <Content Include="Temaplates\home.html" />
     <Content Include="Temaplates\login.html" />
-    <Content Include="Temaplates\next.html" />
     <Content Include="Temaplates\products.html" />
     <Content Include="Temaplates\register.html" />
     <Content Include="Web.config" />
